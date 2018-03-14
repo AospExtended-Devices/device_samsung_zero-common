@@ -27,9 +27,6 @@ PRODUCT_PACKAGES += \
 	android.hardware.radio.deprecated@1.0 \
 	modemloader
 
-# Dual-SIM Support
-ifeq ($(BOARD_HAS_DUAL_SIM),true)
-  include $(LOCAL_PATH)/configs/radio/dual/product.mk
-else
-  include $(LOCAL_PATH)/configs/radio/single/product.mk
-endif
+# Tools
+PRODUCT_PACKAGES += \
+	resetprop.zero   # Required for setting ro.*-properties for dual-SIM support
