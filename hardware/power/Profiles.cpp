@@ -119,7 +119,7 @@ const SecPowerProfile Profiles::kPowerProfilePowerSave = {
 	.cpu = {
 		.apollo = {
 			.governor = "nexus",
-			.freq_min = 200000,
+			.freq_min = 400000,
 			.freq_hispeed = 700000,
 			.freq_max = 1500000,
 			.nexus = {
@@ -130,7 +130,7 @@ const SecPowerProfile Profiles::kPowerProfilePowerSave = {
 		},
 		.atlas = {
 			.governor = "nexus",
-			.freq_min = 400000,
+			.freq_min = 200000,
 			.freq_max = 2100000,
 			.freq_hispeed = 800000,
 			.nexus = {
@@ -166,7 +166,7 @@ const SecPowerProfile Profiles::kPowerProfileBiasPowerSave = {
 	.cpu = {
 		.apollo = {
 			.governor = "nexus",
-			.freq_min = 300000,
+			.freq_min = 400000,
 			.freq_max = 1500000,
 			.freq_hispeed = 800000,
 			.nexus = {
@@ -177,7 +177,7 @@ const SecPowerProfile Profiles::kPowerProfileBiasPowerSave = {
 		},
 		.atlas = {
 			.governor = "nexus",
-			.freq_min = 600000,
+			.freq_min = 300000,
 			.freq_max = 2100000,
 			.freq_hispeed = 1000000,
 			.nexus = {
@@ -212,22 +212,19 @@ const SecPowerProfile Profiles::kPowerProfileBiasPowerSave = {
 const SecPowerProfile Profiles::kPowerProfileBalanced = {
 	.cpu = {
 		.apollo = {
-			.governor = "interactive",
-			.freq_min = 400000,
+			.governor = "nexus",
+			.freq_min = 600000,
 			.freq_max = 1500000,
 			.freq_hispeed = 900000,
-			.interactive = {
-				.above_hispeed_delay = "19000",
-				.go_hispeed_load = 85,
-				.min_sample_time = 40000,
-				.target_loads = "75",
-				.timer_rate = 20000,
-				.timer_slack = 20000,
+			.nexus = {
+				.lpr_ratio = 150,
+				.lpr_down_elevation = 1,
+				.lpr_up_elevation = 3,
 			},
 		},
 		.atlas = {
 			.governor = "nexus",
-			.freq_min = 800000,
+			.freq_min = 400000,
 			.freq_max = 2100000,
 			.freq_hispeed = 1200000,
 			.nexus = {
@@ -243,7 +240,7 @@ const SecPowerProfile Profiles::kPowerProfileBalanced = {
 			.freq_max = 772,
 		},
 		.highspeed = {
-				.freq = 772,
+			.freq = 772,
 			.load = 85,
 		},
 	},
@@ -263,7 +260,7 @@ const SecPowerProfile Profiles::kPowerProfileBiasPerformance = {
 	.cpu = {
 		.apollo = {
 			.governor = "interactive",
-			.freq_min = 600000,
+			.freq_min = 800000,
 			.freq_max = 1500000,
 			.freq_hispeed = 1200000,
 			.interactive = {
@@ -276,14 +273,14 @@ const SecPowerProfile Profiles::kPowerProfileBiasPerformance = {
 			},
 		},
 		.atlas = {
-			.governor = "interactive",
-			.freq_min = 1000000,
+			.governor = "nexus",
+			.freq_min = 600000,
 			.freq_max = 2100000,
 			.freq_hispeed = 1600000,
 			.nexus = {
-				.lpr_ratio = 100,
+				.lpr_ratio = 150,
 				.lpr_down_elevation = 1,
-				.lpr_up_elevation = 2,
+				.lpr_up_elevation = 3,
 			},
 		},
 	},
@@ -313,7 +310,7 @@ const SecPowerProfile Profiles::kPowerProfileHighPerformance = {
 	.cpu = {
 		.apollo = {
 			.governor = "interactive",
-			.freq_min = 800000,
+			.freq_min = 1000000,
 			.freq_max = 1500000,
 			.freq_hispeed = 1500000,
 			.interactive = {
@@ -327,7 +324,7 @@ const SecPowerProfile Profiles::kPowerProfileHighPerformance = {
 		},
 		.atlas = {
 			.governor = "interactive",
-			.freq_min = 1000000,
+			.freq_min = 800000,
 			.freq_max = 2100000,
 			.freq_hispeed = 2100000,
 			.interactive = {
